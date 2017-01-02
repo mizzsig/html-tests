@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="mailStyle.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+	</head>
+
+	<body>
+		<script>
+			$(function(){
+				// 入力部分
+				$('.inputbody').hover(function(){
+					$(this).stop(false, true).animate({
+						"border-color":"#FFB040"
+					}, "fast");
+				}, function(){
+					$(this).stop(false, true).animate({
+						"border-color":""
+					}, "fast");
+				}).focusin(function(){
+					$(this).stop(false, true).css({'background-color':'#FFFFA0', 'outline':'#FFB040'});
+				}).focusout(function(){
+					$(this).stop(false, true).css({'background-color':'', 'outline':'default'});
+				});
+
+				// 送信ボタン
+				$('.submitbody').hover(function(){
+					$(this).stop(false, true).animate({
+						"backgroundColor":"#FF8080",
+						"border-color":"#FF4040"
+					}, "fast");
+				}, function(){
+					$(this).stop(false, true).animate({
+						"backgroundColor":"#A0A0FF",
+						"border-color":"#3030FF"
+					}, "fast");
+				}).focusin(function(){
+					$(this).stop(false, true).animate({
+						"backgroundColor":"#FF8080",
+						"border-color":"#FF4040"
+					}, "fast");
+				}).focusout(function(){
+						$(this).stop(false, true).animate({
+						"backgroundColor":"#A0A0FF",
+						"border-color":"#3030FF"
+					}, "fast");
+				});
+
+				// 本文が入力されているかのチェック
+				$('form').on('submit', bodyConfirm);
+
+				function bodyConfirm(){
+					if($("#textareabody").val() === ""){
+						$('#message').stop(false, true).css({'opacity': '1'}).animate({opacity: 0}, 2000);
+						return false;
+					}else{
+						return true;
+					}
+				}
+			});
+		</script>
+
+		<div class="mailform">
+			<form action="sendMail.php" method="post">
+				<div class="title">メールフォーム</div>
+				名前<br>
+				<input class="inputbody" type="text" name="name"><br><br>
+				メールアドレス<br>
+				<input class="inputbody" type="text" name="email"><br><br>
+				件名<br>
+				<input class="inputbody" type="text" name="about"><br><br>
+				<b>本文(必須)</b><br>
+				<textarea id="textareabody" class="inputbody" type="text" name="main"></textarea>
+				<br><br><div id="message">※※※ 本文を入力してください ※※※</div><br>
+				<input class="submitbody" type="submit" name="送信">
+			</form>
+		</div>
+	</body>
+
+</html>

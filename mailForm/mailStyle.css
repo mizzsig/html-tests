@@ -1,0 +1,56 @@
+body {
+	font-family: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+}
+
+input[type="text"]{
+	width: 50%;
+	border-color: #FFFFFF;
+}
+
+input[type="submit"]{
+	width: 30%;
+	margin-bottom: 20px;
+	padding: 10px 10px;
+
+	background-color: #A0A0FF;
+	border-color: #3030FF;
+}
+
+textarea{
+	width: 70%;
+	height: 200px;
+	resize: none;
+}
+
+.title{
+	text-align: left;
+	padding: 10px 30px;
+	background-color: #A0A0FF;
+	display: table-cell;
+
+	border-radius: 8px 0px 8px 0px;
+	-webkit-border-radius:8px 0px 8px 0px;
+	-moz-border-radius:8px 0px 8px 0px;
+	border-right: 3px solid #6363f0;
+	border-bottom: 3px solid #6363f0;
+}
+
+.mailform{
+	text-align: center;
+	border: 2px blue solid;
+
+	border-radius:8px;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border: 3px solid #6363f0;
+	background-color: rgba(200, 200, 255, 0.5);
+}
+
+.mailform textarea{
+	font-size: 16px;
+}
+
+#message{
+	color: red;
+	opacity: 0;
+}
